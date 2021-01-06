@@ -1,6 +1,5 @@
 extends layout.pug
 
-block content
-  section#content
-    p
-      a(href='/cards') Begin!
+block append namecard
+  h1.namecard-prompt Let's get started
+  a.namecard-submit(href='/cards') Begin!
