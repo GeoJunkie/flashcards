@@ -2,10 +2,18 @@ extends layout.pug
 
 block content
   section#content
-    h2= text
-    if hint
-      p
-        i Hint: #{hint}
-    a(href=`?side=${flip}`)= flip[0].toUpperCase() + flip.slice(1)
-    br
-    a(href='/cards') Next card
+    section.flashcards
+      .card(class=`card-${side}`)
+        .card-header
+        h1.card-title= side[0].toUpperCase() + side.slice(1)
+        #content
+          h2= text
+          if hint
+            p#hint
+              i Hint: It starts with an "s"
+        .card-flip-wrap
+          a(href=`?side=${flip}`)
+            img.card-flip(src='/static/img/flip.svg')
+        .card-next
+          a(href='/cards')
+            img(src='/static/img/next.svg')
