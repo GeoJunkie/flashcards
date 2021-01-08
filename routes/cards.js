@@ -16,6 +16,7 @@ router.get('/:id', (req, res) => {
     const { id } = req.params;
     const text = cards[id][side];
     const { hint } = cards[id];
+    name = req.cookies.username;
 
     const templateData = { 
         text,
@@ -24,6 +25,7 @@ router.get('/:id', (req, res) => {
 
     const  renderCard = ( flipSide ) => {
         templateData.flip = flipSide;
+        templateData.name = req.cookies.username;
         res.render('card', templateData );
     };
 
